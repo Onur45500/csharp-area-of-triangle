@@ -22,6 +22,9 @@ namespace AreaOfTriangle
             double result = 0;
             CalculateTriangleAreaWithOut(baseTriangle, heightTriangle, out result);
             Console.WriteLine($"Triangle area is : {result}");
+
+            CalculateTriangleAreaWithRef(baseTriangle, heightTriangle, ref result);
+            Console.WriteLine($"Triangle area is : {result}");
         }
 
         static void CalculateTriangleArea(double b, double h)
@@ -32,7 +35,15 @@ namespace AreaOfTriangle
 
         static void CalculateTriangleAreaWithOut(double b, double h, out double result)
         {
-            result = 0.5 * (b * h);
+            double localResult;
+
+            localResult = 0.5 * (b * h);
+        }
+
+        static void CalculateTriangleAreaWithRef(double b, double h, ref double result)
+        {
+            double localResult;
+            localResult = 0.5 * (b * h);
         }
     }
 }
