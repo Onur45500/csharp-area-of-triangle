@@ -2,8 +2,10 @@
 
 namespace AreaOfTriangle
 {
+
     public class Program
     {
+
         static void Main(string[] args)
         {
             string input;
@@ -25,6 +27,11 @@ namespace AreaOfTriangle
 
             CalculateTriangleAreaWithRef(baseTriangle, heightTriangle, ref result);
             Console.WriteLine($"Triangle area is : {result}");
+
+            Program instance = new Program();
+            instance.CalculateTriangleAreaWithInitialisation(baseTriangle, heightTriangle);
+
+
         }
 
         static void CalculateTriangleArea(double b, double h)
@@ -33,17 +40,22 @@ namespace AreaOfTriangle
             Console.WriteLine($"Triangle area is : {result}");
         }
 
+        // When we use an out parameter this one must be assigned.
         static void CalculateTriangleAreaWithOut(double b, double h, out double result)
         {
-            double localResult;
-
-            localResult = 0.5 * (b * h);
+            result = 0.5 * (b * h);
         }
 
+        // When we use an ref parameter we have the choice to not assign it.
         static void CalculateTriangleAreaWithRef(double b, double h, ref double result)
         {
-            double localResult;
-            localResult = 0.5 * (b * h);
+            result = 0.5 * (b * h);
+        }
+
+        void CalculateTriangleAreaWithInitialisation(double h, double b)
+        {
+            double result = 0.5 * (b * h);
+            Console.WriteLine($"Triangle area is : {result}");
         }
     }
 }
