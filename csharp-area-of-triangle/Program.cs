@@ -31,7 +31,7 @@ namespace AreaOfTriangle
             Program instance = new Program();
             instance.CalculateTriangleAreaWithInitialisation(baseTriangle, heightTriangle);
 
-
+            Console.WriteLine($"Triangle area is : {CalculateTriangleAreaWithReturn(baseTriangle, heightTriangle)}");
         }
 
         static void CalculateTriangleArea(double b, double h)
@@ -56,6 +56,13 @@ namespace AreaOfTriangle
         {
             double result = 0.5 * (b * h);
             Console.WriteLine($"Triangle area is : {result}");
+        }
+
+        static double CalculateTriangleAreaWithReturn(double b, double h)
+        {
+            double result = 0.5 * (b * h);
+
+            return result;
         }
     }
 }
